@@ -1,51 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="./main.css"/>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./main.css" />
     <title>todo list</title>
-    
-</head>
-<body>
-   <div class="container">
-      <div class="row mt-3">
-          <div class="col-md-6">
-            <h3>
-              Thêm việc mới
-            </h3>
+  </head>
+  <body>
+    <button onclick="topFunction()" id="myBtn">
+      <i class="fas fa-chevron-up"></i>
+    </button>
+    <div class="container">
+      <div class="todo">
+        <div class="row mt-3">
+          <h3>Thêm công việc cần làm</h3>
+          <div class="col">
             <form class="add-post-form">
               <div class="form-group">
-                <lable for="title">Title</lable>
-                <input type="text" class="form-control" id="title-value">
+                <h4>Title</h4>
+                <input type="text" class="form-control" id="title-value" />
               </div>
               <div class="form-group">
-                <label for="description">Description</label>
-                <textarea class="form-control" id="description-value"></textarea>
+                <h4>Description</h4>
+                <textarea
+                  class="form-control"
+                  id="description-value"
+                ></textarea>
               </div>
-              <button type ="submit" class="btn btn-primary"id="add">Thêm</button>
-              <button type ="submit" class="btn btn-primary "id="update">cập nhật</button>
+              <button type="submit" id="add">Add</button>
+              <button type="submit" id="update">Update</button>
             </form>
           </div>
+        </div>
+        <h3>Công việc cần làm</h3>
+        <div class="post-list"></div>
       </div>
+    </div>
+  </body>
+  <script type="module" src="./main.js"></script>
+  <script>
+    let mybutton = document.getElementById("myBtn");
+    window.onscroll = function () {
+      scrollFunction();
+    };
 
-       <div class="post-list row">
-        <!-- <div class="card mt-4 col-md-6 bg-ligt">
-          <div class="card-body">
-            <h5 class="card-title">tít le</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-            <p class="card-text">tít le nè</p>
-            <a href="#" class="card-link">Sửa</a>
-            <a href="#" class="card-link">Xóa</a>
-          </div>
-        </div> -->
-      </div>
-   </div>
-</body>
-<script type="module" src="./main.js"></script>
+    function scrollFunction() {
+      if (
+        document.body.scrollTop > 50 ||
+        document.documentElement.scrollTop > 50
+      ) {
+        mybutton.style.display = "block";
+      } else {
+        mybutton.style.display = "none";
+      }
+    }
 
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }
+  </script>
 </html>

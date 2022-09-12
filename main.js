@@ -17,8 +17,8 @@ const renderPost = (post) => {
       <h6>Time:${td.timestamps.createdOn}</h6>
       <h2 class="card-text">Description:</h2>
       <h4 class="card-description">${td.description}</h4>
-      <a href="#" class="card-link" id="edit">Sửa</a>
-      <a href="#" class="card-link" id="delete">Xóa</a>
+      <button href="#" class="card-link" id="edit">Sửa</button>
+      <button href="#" class="card-link" id="delete">Xóa</button>
     </div>
   </div>
       `;
